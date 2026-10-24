@@ -11,6 +11,8 @@ export const saveFormula = z.object({
   uuid: uuid.optional(),
   name: z.string().min(1).max(64).optional(),
   formula_text: z.string().min(1).max(5000).optional(),
+  status: z.enum(['ACTIVE', 'INACTIVE']).optional(),
+  note: z.string().max(255).optional(),
   changed_by: user,
   base_version: z.number().int().min(1).optional(),
   force: z.boolean().default(false),
